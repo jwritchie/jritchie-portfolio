@@ -1,0 +1,1444 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<!-- JavaScript exercises -->
+<section id="javascript">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="section-heading">Javascript Exercises</h2>
+                <hr class="blue">
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-6 text-center">
+                <div class="javascript-box">
+                    <h3 class="sr-icons" href="#" data-toggle="modal" data-target="#fiveNumbersModal">5 Numbers</h3>
+                    <p class="text-muted">Enter five numbers; find the Least, Greatest, and more!</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6 text-center">
+                <div class="javascript-box">
+                    <h3 class="sr-icons" href="#" data-toggle="modal" data-target="#factorialModal">Factorials</h3>
+                    <p class="text-muted">Calculate the factorial of a number.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6 text-center">
+                <div class="javascript-box">
+                    <h3 class="sr-icons" href="#" data-toggle="modal" data-target="#fizzbuzzModal">Fizzbuzz</h3>
+                    <p class="text-muted">For each number that is a multiple of the first input...</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6 text-center">
+                <div class="javascript-box">
+                    <h3 class="sr-icons" href="#" data-toggle="modal" data-target="#palindromeModal">Palindrome Finder</h3>
+                    <p class="text-muted">Determine whether a word or phrase is a palindrome.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6 text-center">
+                <div class="javascript-box">
+                    <h3 class="sr-icons" href="#" data-toggle="modal" data-target="#alphabetizeModal">Alphabetize</h3>
+                    <p class="text-muted">Put letters in alphabetic order.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6 text-center">
+                <div class="javascript-box">
+                    <h3 class="sr-icons" href="#" data-toggle="modal" data-target="#uppercaseModal">Uppercase</h3>
+                    <p class="text-muted">Convert the first letter of each word entered to uppercase.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6 text-center">
+                <div class="javascript-box">
+                    <h3 class="sr-icons" href="#" data-toggle="modal" data-target="#vowelsModal">Count the vowels</h3>
+                    <p class="text-muted">Count and display the number of vowels.</p>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-6 text-center">
+                <div class="javascript-box">
+                    <h3 class="sr-icons" href="#" data-toggle="modal" data-target="#primesModal">Prime number</h3>
+                    <p class="text-muted">Determine whether a number is Prime.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="margin-top:10px">&nbsp;</div>
+    <hr class="blue" />
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <a href="@Url.Action("Portfolio","Home")" style="color:rgb(30, 80, 150)">Back to Portfolio</a>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+<!-- Begin 5 Numbers Modal -->
+<div id="fiveNumbersModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title text-center">5 Numbers</h4>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <div class="=row">
+                        <div class="col-md-12">
+                            <input class="form-control" type="number" id="number1" placeholder="Enter a number" onchange="enableDisableButtons()"/>
+                        </div>
+                    </div>
+                    <div class="=row">
+                        <div class="col-md-12">
+                            <input class="form-control" type="number" id="number2" placeholder="Enter a number" onchange="enableDisableButtons()"/>
+                        </div>
+                    </div>
+                    <div class="=row">
+                        <div class="col-md-12">
+                            <input class="form-control" type="number" id="number3" placeholder="Enter a number" onchange="enableDisableButtons()"/>
+                        </div>
+                    </div>
+                    <div class="=row">
+                        <div class="col-md-12">
+                            <input class="form-control" type="number" id="number4" placeholder="Enter a number" onchange="enableDisableButtons()"/>
+                        </div>
+                    </div>
+                    <div class="=row">
+                        <div class="col-md-12">
+                            <input class="form-control" type="number" id="number5" placeholder="Enter a number" onchange="enableDisableButtons()"/>
+                        </div>
+                    </div>
+
+                    <div>&nbsp;</div>  <!-- Use <div> to force display of <hr/> -->
+                    <hr />
+                    
+                    <h4>Find the value:</h4>
+                    <div class="row">
+                        <button class="btn btn-default" id="btnLeast" onclick="determineLeast()" disabled>Least</button>
+                        <div id="leastResult">Least result</div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <button class="btn btn-default" id="btnGreatest" onclick="determineGreatest()" disabled>Greatest</button>
+                        <div id="greatestResult">Greatest result</div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <button class="btn btn-default" id="btnMean" onclick="determineMean()" disabled>Mean</button>
+                        <div id="meanResult">Mean result</div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <button class="btn btn-default" id="btnSum" onclick="determineSum()" disabled>Sum</button>
+                        <div id="sumResult">Sum result</div>
+                    </div>
+                    <br />
+                    <div class="row">
+                        <button class="btn btn-default" id="btnProduct" onclick="determineProduct()" disabled>Product</button>
+                        <div id="productResult">Product result</div>
+                    </div>
+                    <br />
+                    <button class="btn btn-default" id="clearResetFiveNumbers" onclick="clearResetFiveNumbers()">Clear/Reset</button>
+
+                    <hr />
+
+                    <div style="border:4px double #009999; margin-top:20px">
+                        <pre class="brush: js">
+                        /** Write a program that accepts a series of 5 numbers from the user: 
+                              a. Determine which number is the least 
+                              b. Determine which number is the greatest 
+                              c. Determine the mean of the numbers 
+                              d. Determine the sum of all the numbers 
+                              e. Determine the product of all the numbers **/
+
+                        // Establish global variable.
+                        var numberArray = [];
+
+                        /* Enable / Disable buttons depending upon whether user has entered values 
+                           into all required input fields. */
+                        function enableDisableButtons() {
+                            if (document.getElementById("number1").value == "" ||
+                                document.getElementById("number2").value == "" ||
+                                document.getElementById("number3").value == "" ||
+                                document.getElementById("number4").value == "" ||
+                                document.getElementById("number5").value == "") {
+                                document.getElementById("btnLeast").disabled = true;
+                                document.getElementById("btnGreatest").disabled = true;
+                                document.getElementById("btnMean").disabled = true;
+                                document.getElementById("btnSum").disabled = true;
+                                document.getElementById("btnProduct").disabled = true;
+                            } else {
+                                document.getElementById("btnLeast").disabled = false;
+                                document.getElementById("btnGreatest").disabled = false;
+                                document.getElementById("btnMean").disabled = false;
+                                document.getElementById("btnSum").disabled = false;
+                                document.getElementById("btnProduct").disabled = false;
+                            }
+                        }
+
+                        // Retrieve user's values, store into an array.
+                        function retrieveValuesArray() {
+                            numberArray = [];
+                            numberArray.push(Number(document.getElementById("number1").value));
+                            numberArray.push(Number(document.getElementById("number2").value));
+                            numberArray.push(Number(document.getElementById("number3").value));
+                            numberArray.push(Number(document.getElementById("number4").value));
+                            numberArray.push(Number(document.getElementById("number5").value));
+                        }
+
+                        // Determine least value within the user's numbers.
+                        function determineLeast() {
+                            retrieveValuesArray();
+                            document.getElementById("leastResult").innerHTML = Math.min.apply(null, numberArray);
+                        }
+
+                        // Determine greatest value within the user's numbers.
+                        function determineGreatest() {
+                            retrieveValuesArray();
+                            document.getElementById("greatestResult").innerHTML = Math.max.apply(null, numberArray);
+                        }
+
+                        // Calculate the sum of the user's numbers.
+                        function calculateSum() {
+                            retrieveValuesArray();
+                            var numbersSum = 0;
+                            for (var i = 0; i <= numberArray.length - 1; i++) {
+                                numbersSum += numberArray[i];
+                            }
+                            return numbersSum;
+                        }
+
+                        // Determine the mean of the user's numbers.
+                        function determineMean() {
+                            document.getElementById("meanResult").innerHTML = calculateSum() / numberArray.length;
+                        }
+
+                        // Determine the sum of the user's numbers.        
+                        function determineSum() {
+                            document.getElementById("sumResult").innerHTML = calculateSum();
+                        }
+
+                        // Determine the product of the user's numbers.
+                        function determineProduct() {
+                            retrieveValuesArray();
+                            var numbersProduct = 1;
+                            for (var i = 0; i <= numberArray.length - 1; i++) {
+                                numbersProduct *= numberArray[i];
+                            }
+                            document.getElementById("productResult").innerHTML = numbersProduct;
+                        }
+
+                        // Reset the page.
+                        function clearReset() {
+
+                            // Disable buttons.
+                            document.getElementById("btnLeast").disabled = true;
+                            document.getElementById("btnGreatest").disabled = true;
+                            document.getElementById("btnMean").disabled = true;
+                            document.getElementById("btnSum").disabled = true;
+                            document.getElementById("btnProduct").disabled = true;
+
+                            // Clear input fields.
+                            document.getElementById("number1").value = "";
+                            document.getElementById("number2").value = "";
+                            document.getElementById("number3").value = "";
+                            document.getElementById("number4").value = "";
+                            document.getElementById("number5").value = "";
+
+                            // Reset results display for each operation.
+                            document.getElementById("leastResult").innerHTML = "Least result";
+                            document.getElementById("greatestResult").innerHTML = "Greatest result";
+                            document.getElementById("meanResult").innerHTML = "Mean result";
+                            document.getElementById("sumResult").innerHTML = "Sum result";
+                            document.getElementById("productResult").innerHTML = "Product result";
+                        }
+                        </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End 5 Numbers Modal -->
+
+
+<!-- Begin Factorial Modal -->
+<div id="factorialModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title text-center">Find the factorial</h4>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <input class="form-control" type="number" id="numberFactorial" placeholder="Enter a non-negative integer" onchange="enableDisableButtonsFactorial()" />
+                    <hr />
+                    <button class="btn btn-default" id="btnFactorial" onclick="determineFactorial()" style="margin-top:0px" disabled>Calculate Factorial</button>
+                    <button class="btn btn-default" id="clearResetFactorial" onclick="clearResetFactorial()">Clear/Reset</button>
+                    <hr />
+                    <label>Result:</label>
+                    <div id="factorialResult">&nbsp;</div>
+                    <div style="border:4px double #009999; margin-top:20px">
+                        <pre class="brush: js">
+                            /** Write a program that calculates the factorial of a number. 
+                                The factorial of a non-negative integer n is the product of all positive integers less than or equal to n. 
+                                (i.e.  5! = 5 x 4 x 3 x 2 x 1 = 120). **/
+
+                            // Enable / Disable button depending upon whether user has entered a value into the required input field.
+                            function enableDisableButtons() {
+                                if (document.getElementById("numberFactorial").value === "" ||
+                                    !Number.isInteger(Number(document.getElementById("numberFactorial").value)) ||
+                                    Number(document.getElementById("numberFactorial").value) < 0) {
+                                    document.getElementById("btnFactorial").disabled = true;
+                                } else {
+                                    document.getElementById("btnFactorial").disabled = false;
+                                }
+                            }
+
+                            // Determine factorial of user's number. 
+                            function determineFactorial() {
+
+                                // Establish variables.
+                                var numberFactorial = document.getElementById("numberFactorial").value;
+                                var factorialResult = 1;
+
+                                // Compute factorial.
+                                for (var i = 1; i <= Number(numberFactorial); i++) {
+                                    factorialResult *= i;
+                                }
+
+                                // Display result to user.
+                                document.getElementById("factorialResult").innerHTML = numberFactorial + "! = " + factorialResult;
+                            }
+
+                            // Reset the page.
+                            function clearReset() {
+                                document.getElementById("btnFactorial").disabled = true;
+                                document.getElementById("numberFactorial").value = "";
+                                document.getElementById("factorialResult").innerHTML = "&nbsp;";
+                            }
+                        </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Factorial Modal -->
+
+
+<!-- Begin Fizzbuzz Modal -->
+<div id="fizzbuzzModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title text-center">Fizz ... Buzz!</h4>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <h4>Enter two numbers between 1 and 100.</h4>
+                    <input class="form-control" id="number1FB" type="number" placeholder="Enter a number" onchange="enableDisableButtonsFB()" />
+                    <input class="form-control" id="number2FB" type="number" placeholder="Enter a number" onchange="enableDisableButtonsFB()" />
+                    <hr />
+                    <button class="btn btn-default" id="btnFizzBuzz" onclick="processFizzBuzz()" style="margin-top:0px" disabled>Fizz...Buzz!</button>
+                    <button class="btn btn-default" id="clearResetFB" onclick="clearResetFB()">Clear/Reset</button>
+                    <hr />
+                    <label>Result:</label>
+                    <div id="fizzBuzzResult" style="margin:10px 10px">&nbsp;</div>
+
+                    <div style="border:4px double #009999; margin-top:20px">
+                        <pre class="brush: js">
+                        /** Write a program that accepts two numbers between 1 and 100 from the user. 
+                            The program then iterates through all numbers from 1 to 100, printing numbers in ascending order to the screen. 
+                            For each number that is a multiple of the first number input by the user, print "Fizz" instead of the number. 
+                            For each number that is a multiple of the second number input by the user, print "Buzz" instead of the number. 
+                            For numbers that are multiples of both numbers, print "FizzBuzz" instead of the number. **/
+
+                        // Enable / Disable buttons depending upon whether user has entered appropriate values into both required input fields.
+                        function enableDisableButtonsFB() {
+                            if (document.getElementById("number1FB").value === "" ||
+                                document.getElementById("number2FB").value === "" ||
+                                Number(document.getElementById("number1FB").value) < 1 || Number(document.getElementById("number1FB").value) > 100 ||
+                                Number(document.getElementById("number2FB").value) < 1 || Number(document.getElementById("number2FB").value) > 100) {
+                                document.getElementById("btnFizzBuzz").disabled = true;
+                            } else {
+                                document.getElementById("btnFizzBuzz").disabled = false;
+                            }
+                        }
+
+                        // Identify numbers which qualify as 'Fizz', 'Buzz', or 'FizzBuzz' numbers.
+                        function processFizzBuzz() {
+
+                            // Retrieve user's numbers.
+                            var number1 = Number(document.getElementById("number1FB").value);
+                            var number2 = Number(document.getElementById("number2FB").value);
+
+                            // Establish variables.
+                            var outputElement = "";
+                            var fbElement;
+                            var resultOutput = "";
+
+                            // Test user's numbers.
+                            for (var i = 1; i <= 100; i++) {
+
+                                // Reset fizz/buzz identifier.
+                                fbElement = false;
+
+                                // Determine whether current number is a multiple of the user's first number.
+                                if (!(i % number1)) {
+                                    // Set output.
+                                    outputElement = "Fizz";
+                                    // Identify as f/b.
+                                    fbElement = true;
+                                }
+                                // Determine whether current number is a multiple of the user's second number.
+                                if (!(i % number2)) {
+                                    // Set output.
+                                    outputElement = "Buzz";
+                                    // Identify as f/b.
+                                    fbElement = true;
+                                }
+                                // Determine whether current number is a multiple of both of the user's numbers.
+                                if (!(i % number1) && !(i % number2)) {
+                                    // Set output.
+                                    outputElement = "FizzBuzz";
+                                    // Identify as f/b.
+                                    fbElement = true;
+                                }
+                                // Determine whether current number has been identified as a f/b element.
+                                if (!fbElement) {
+                                    // Set output.
+                                    outputElement = i;
+                                }
+
+                                // Insert spacing as appropriate.
+                                if (i !== 100) {
+                                    outputElement += ", ";
+                                }
+
+                                // Build result string.
+                                resultOutput += outputElement;
+                            }
+
+                            // Display result to user.
+                            document.getElementById("fizzBuzzResult").innerHTML = resultOutput;
+                        }
+
+                        // Reset the page.
+                        function clearResetFB() {
+                            document.getElementById("btnFizzBuzz").disabled = true;
+
+                            document.getElementById("number1FB").value = "";
+                            document.getElementById("number2FB").value = "";
+
+                            document.getElementById("fizzBuzzResult").innerHTML = "&nbsp;";
+                        }
+                    </pre>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Fizzbuzz Modal -->
+
+
+<!-- Begin Palindrome Modal -->
+<div id="palindromeModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title text-center">Palindrome Finder</h4>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <input class="form-control" id="wordToTest" type="text" placeholder="Enter a word/phrase to test" onchange="enableDisableButtonsPalindrome()" />
+                    <hr />
+                    <button class="btn btn-default" id="btnPalindrome" onclick="determinePalindrome()" style="margin-top:0px" disabled>Test word/phrase</button>
+                    <button class="btn btn-default" id="clearResetPalindrome" onclick="clearResetPalindrome()">Clear/Reset</button>
+                    <hr />
+                    <label>Result:</label>
+                    <div id="palindromeResult">&nbsp;</div>
+
+                    <div style="border:4px double #009999; margin-top:20px">
+                       <pre class="brush: js">
+                            /** Write a program that determines whether a word is a Palindrome (the same backward as it is forward – “radar” for example). 
+                                Display the result to the user.
+                                Examples: 'radar', 'Was it a car or a cat I saw?' **/
+                                
+                                // Enable / Disable button depending upon whether user has entered a value into required input field.
+                                function enableDisableButtonsPalindrome() {
+                                    if (document.getElementById("wordToTest").value == "") {
+                                        document.getElementById("btnPalindrome").disabled = true;
+                                    } else {
+                                        document.getElementById("btnPalindrome").disabled = false;
+                                    }
+                                }
+
+                                // Determine whether user's word is a Palindrome.
+                                function determinePalindrome() {
+
+                                    // Retrieve input value.
+                                    var inputValue = document.getElementById("wordToTest").value;
+
+                                    // Filter out non-valid characters & convert to lowercase.
+                                    var wordToTest = inputValue.replace(/[^A-Za-z0-9]/gi, "").toLowerCase();
+      
+                                    // Establish variables.
+                                    var lengthOfWord = wordToTest.length;
+                                    var maxCharsToTest = parseInt(lengthOfWord / 2);
+                                    var isPalindrome = true;
+                                    var testUp = "";
+                                    var testDown = "";
+                                    var resultMessage = "";
+
+                                    // Clear result.
+                                    document.getElementById("palindromeResult").innerHTML = "";
+
+                                    // Test letters in the word, comparing first 'half' (testUp) of the word against the last 'half' (testDown).
+                                    for (var i = 0; i < maxCharsToTest; i++) {
+                                        testUp = wordToTest.charAt(i);
+                                        testDown = wordToTest.charAt(lengthOfWord - i - 1);
+
+                                        // If any character comparision is false, the word is not a palindrome.
+                                        if (testUp !== testDown) {
+                                            isPalindrome = false;
+                                        }
+                                    }
+
+                                    // Display result to user.
+                                    if (!isPalindrome) {
+                                        resultMessage = "The word/phrase \'" + inputValue + "'\ is NOT a Palindrome.";
+                                    } else {
+                                        resultMessage = "The word/phrase \'" + inputValue + "'\ IS a Palindrome!";
+                                    }
+                                    document.getElementById("palindromeResult").innerHTML = resultMessage;
+                                }
+
+                                // Reset the page.
+                                function clearResetPalindrome() {
+                                    document.getElementById("btnPalindrome").disabled = true;
+                                    document.getElementById("wordToTest").value = "";
+                                    document.getElementById("palindromeResult").innerHTML = "&nbsp;";
+                                }
+                        </pre>
+                    </div>
+                </div >
+            </div>
+        </div >
+    </div >
+</div >
+<!-- End Palindrome Modal -->
+
+
+<!-- Begin Alphabetize Modal -->
+<div id="alphabetizeModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title text-center">Alphabetize the letters in a word or phrase</h4>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <input class="form-control" type="text" id="stringToProcess" placeholder="Enter a word or phrase" style="padding:10px 10px 10px 10px"/>
+                    <hr />
+                    <button class="btn btn-default" id="btnProcessString" onclick="processString()" style="margin-top:0px">Process word/phrase</button>
+                    <button class="btn btn-default" id="clearResetAlphabetize" onclick="clearResetAlphabetize()">Clear/Reset</button>
+                    <hr />
+                    <label>Result:</label>
+                    <div id="stringProcessingResult">&nbsp;</div>
+
+                    <div style="border:4px double #009999; margin-top:20px">
+                        <pre class="brush: js">
+                        /** Write a JavaScript function that returns a passed string with letters in alphabetical order.  ex: mouse = emosu **/
+
+                        // Alphabetize the letters in a string.
+                        function processString() {
+
+                            // Retrieve input value.
+                            var stringToProcess = document.getElementById("stringToProcess").value;
+
+                            // Determine whether user entered a string to test.
+                            if (stringToProcess !== "") {
+
+                                // Establish variables.
+                                var stringArray = [];
+                                var lowercaseArray = [];
+                                var tempElementStringArray;
+                                var tempElementFinalStringArray;
+
+                                // Clear any existing result.
+                                document.getElementById("stringProcessingResult").innerHTML = "";
+
+                                // Convert user's string to arrays.
+                                lowercaseStringArray = stringToProcess.toLowerCase().split("");
+                                finalStringArray = stringToProcess.split("");
+
+                                /** Sort the arrays. The lowercase array 'drives' the sort,
+                                    the final array 'goes along for the ride'. **/
+                                for (var j = 1; j <= lowercaseStringArray.length - 1; j++) {
+                                    for (var i = 1; i <= lowercaseStringArray.length - 1; i++) {
+
+                                        /** Examine the lowercase array and compare current array element with lower-indexed element. 
+                                            Swap the two elements if the lower-indexed element has a higher ACSII-code value. **/
+                                        if (lowercaseStringArray[i - 1] > lowercaseStringArray[i]) {
+
+                                            // Swap the two elements in both arrays.
+                                            tempElementStringArray = lowercaseStringArray[i - 1];
+                                            tempElementFinalStringArray = finalStringArray[i - 1];
+
+                                            lowercaseStringArray[i - 1] = lowercaseStringArray[i];
+                                            finalStringArray[i - 1] = finalStringArray[i];
+
+                                            lowercaseStringArray[i] = tempElementStringArray;
+                                            finalStringArray[i] = tempElementFinalStringArray;
+                                        }
+                                    }
+                                }
+
+                                // Convert the sorted array back to a string and display it.
+                                document.getElementById("stringProcessingResult").innerHTML = finalStringArray.join("");
+
+                            } else {
+                                // Remind user to first enter a string.
+                                document.getElementById("stringProcessingResult").innerHTML = "Please enter a string to test.";
+                            }
+                        }
+
+                        // Reset the page.
+                        function clearResetAlphabetize() {
+                            document.getElementById("stringToProcess").value = "";
+                            document.getElementById("stringProcessingResult").innerHTML = "&nbsp;";
+                        }
+                        </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Alphabetize Modal -->
+
+
+<!-- Begin Uppercase Modal -->
+<div id="uppercaseModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title text-center">Convert 1st letter of each word to uppercase</h4>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <input class="form-control" type="text" id="stringToProcessUppercase" placeholder="Enter a sentence to process"/>
+                    <hr />
+                    <button class="btn btn-default" id="btnProcessStringUppercase" onclick="processStringUppercase()" style="margin-top:0px">Process sentence</button>
+                    <button class="btn btn-default" id="clearResetUppercase" onclick="clearResetUppercase()">Clear/Reset</button>
+                    <hr />
+                    <label>Result:</label>
+                    <div id="stringProcessingResultUppercase">&nbsp;</div>
+
+                    <div style="border:4px double #009999; margin-top:20px">
+                        <pre class="brush: js">
+                            /** Write a JavaScript function that accepts a string as a parameter and converts the first letter of each word 
+                                    of the string in upper case.  ex: mark is the man = Mark Is The Man **/
+
+                            // Obtain string and process it.
+                            function processStringUppercase() {
+
+                                // Retrieve input value.
+                                var stringToProcessUppercase = document.getElementById("stringToProcessUppercase").value;
+
+                                // Determine whether user entered a string to process.
+                                if (stringToProcessUppercase !== "") {
+
+                                    // Clear any existing result.
+                                    document.getElementById("stringProcessingResultUppercase").innerHTML = "";
+
+                                    // Process the string.
+                                    var revisedString = reviseString(stringToProcessUppercase);
+
+                                    // Display the revised string.
+                                    document.getElementById("stringProcessingResultUppercase").innerHTML = revisedString;
+
+                                } else {
+                                    // Remind user to first enter a string.
+                                    document.getElementById("stringProcessingResultUppercase").innerHTML = "Please enter a sentence to process.";
+                                }
+                            }
+
+                            // Convert 1st letter of each word to upper case.
+                            function reviseString(stringToProcessUppercase) {
+
+                                // Establish variable.
+                                var stringArray = [];
+
+                                // Convert user's string to array.
+                                stringArray = stringToProcessUppercase.split(" ");
+
+                                // Convert first letter of each array element to upper case.
+                                for (var i = 0; i <= stringArray.length - 1; i++) {
+                                    stringArray[i] = stringArray[i].replace(stringArray[i].charAt(0), stringArray[i].charAt(0).toUpperCase());
+                                }
+
+                                // Build and return revised string.
+                                return stringArray.join(" ")
+                            }
+
+                            // Reset the page.
+                            function clearResetUppercase() {
+                                document.getElementById("stringToProcessUppercase").value = "";
+                                document.getElementById("stringProcessingResultUppercase").innerHTML = "&nbsp;";
+                            }
+                        </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Uppercase Modal -->
+
+
+<!-- Begin Vowels Modal -->
+<div id="vowelsModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title text-center">Count the number of vowels</h4>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <input class="form-control" id="stringToProcessVowels" type="text" placeholder="Enter a sentence to process"/>
+                    <hr />
+                    <button class="btn btn-default" id="btnProcessStringVowels" onclick="processStringVowels()" style="margin-top:0px">Process sentence</button>
+                    <button class="btn btn-default" id="clearResetVowels" onclick="clearResetVowels()">Clear/Reset</button>
+                    <hr />
+                    <label>Result:</label>
+                    <div id="stringProcessingResultVowels">&nbsp;</div>
+
+                    <div style="border:4px double #009999; margin-top:20px">
+                        <pre class="brush: js">
+                            /** Write a JavaScript function that accepts a string as a parameter and counts the number of vowels within the string
+                                and display the vowels.  ex: mark is the man = [a, i, e, a]   4 **/
+
+                            // Obtain string and process it.
+                            function processStringVowels() {
+
+                                // Retrieve input value.
+                                var stringToProcessVowels = document.getElementById("stringToProcessVowels").value;
+
+                                // Determine whether user entered a string to process.
+                                if (stringToProcessVowels !== "") {
+
+                                    // Clear any existing result.
+                                    document.getElementById("stringProcessingResultVowels").innerHTML = "";
+
+                                    // Process the string.
+                                    var vowelCount = countVowels(stringToProcessVowels);
+
+                                    // Display the revised string.
+                                    document.getElementById("stringProcessingResultVowels").innerHTML = "\'" + stringToProcessVowels + "\' contains " + vowelCount + ".";
+
+                                } else {
+
+                                    // Remind user to first enter a string.
+                                    document.getElementById("stringProcessingResultVowels").innerHTML = "Please enter a sentence to process.";
+                                }
+                            }
+
+                            // Count the number of vowels within a string.
+                            function countVowels(stringToProcessVowels) {
+
+                                // Establish variables.
+                                var stringArray = [];
+                                var outputArray = [];
+
+                                // Convert user's string to array.
+                                stringArray = stringToProcessVowels.split("");
+
+                                // Find each vowel within the array. Add it to the output array.
+                                for (var i = 0; i <= stringArray.length - 1; i++) {
+
+                                    switch (stringArray[i]) {
+                                        case "a":
+                                            outputArray.push(stringArray[i]);
+                                            break;
+                                        case "e":
+                                            outputArray.push(stringArray[i]);
+                                            break;
+                                        case "i":
+                                            outputArray.push(stringArray[i]);
+                                            break;
+                                        case "o":
+                                            outputArray.push(stringArray[i]);
+                                            break;
+                                        case "u":
+                                            outputArray.push(stringArray[i]);
+                                            break;
+                                        case "y":
+                                            outputArray.push(stringArray[i]);
+                                            break;
+                                    }
+                                }
+
+                                // Build and return vowel-identification string.
+                                return outputArray.length + " vowels: " + outputArray.toString();
+                            }
+
+                            // Reset the page.
+                            function clearResetVowels() {
+                                document.getElementById("stringToProcessVowels").value = "";
+                                document.getElementById("stringProcessingResultVowels").innerHTML = "&nbsp;";
+                            }
+                        </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Vowels Modal -->
+
+
+<!-- Begin Primes Modal -->
+<div id="primesModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title text-center">Find Prime Numbers</h4>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <input class="form-control" id="number1Primes" type="number" placeholder="Enter a positive integer greater than 1"/>
+                    <hr />
+                    <button class="btn btn-default" id="btnPrime" onclick="determinePrime()" style="margin-top:0px">Is the number a Prime?</button>
+                    <button class="btn btn-default" id="clearResetPrimes" onclick="clearResetPrimes()">Clear/Reset</button>
+                    <hr />
+                    <label>Result:</label>
+                    <div id="primeResult">&nbsp;</div>
+
+                    <div style="border:4px double #009999; margin-top:20px">
+                        <pre class="brush: js">
+                            /** Write a JavaScript function that accepts a number as a parameter and check the number is prime or not.
+                                A Prime Number can be divided evenly only by 1 or itself. And it must be a whole number greater than 1.
+                                Examples: 2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97 **/
+
+                            // Identify Prime Numbers.
+                            function determinePrime() {
+
+                                // Establish variables.
+                                var number1 = document.getElementById("number1Primes").value;
+                                var modQuestion
+                                var primeResult;
+                                var isPrimeArrayTest = [];
+
+                                // Confirm user entered a positive integer greater than one.
+                                if (Number(number1) > 1 && number1 !== "") {
+
+                                    // Loop through all values > 1 and <= the user's value. 
+                                    for (var i = 2; i <= Number(number1); i++) {
+
+                                        // Find remainder of division by current value.
+                                        modQuestion = Number(number1) % i;
+
+                                        // If remainder is zero, add current value to array.
+                                        if (modQuestion === 0) {
+                                            isPrimeArrayTest.push(i);
+                                        }
+                                    }
+
+                                    // If only one zero-value remainder was found, user's value is a Prime.
+                                    if (isPrimeArrayTest.length === 1) {
+                                        primeResult = number1 + ":  IS a Prime.";
+                                    } else {
+                                        primeResult = number1 + ":  Is NOT a Prime.";
+                                    }
+
+                                    // Display result to user.
+                                    document.getElementById("primeResult").innerHTML = primeResult;
+                                } else {
+
+                                    // Invalid numeric value entered.
+                                    document.getElementById("primeResult").innerHTML = "Please enter a positive integer greater than 1.";
+                                }
+                            }
+
+                            // Reset the page.
+                            function clearResetPrimes() {
+                                document.getElementById("number1Primes").value = "";
+                                document.getElementById("primeResult").innerHTML = "&nbsp;";
+                            }
+                        </pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Primes Modal -->
+
+
+<!-- ** Begin Scripts ** -->
+<!-- Begin 5 Numbers -->
+<script>
+    // Establish global variable.
+    var numberArray = [];
+
+    // Enable / Disable buttons depending upon whether user has entered values into all required input fields.
+    function enableDisableButtons() {
+        if (document.getElementById("number1").value == "" ||
+            document.getElementById("number2").value == "" ||
+            document.getElementById("number3").value == "" ||
+            document.getElementById("number4").value == "" ||
+            document.getElementById("number5").value == "") {
+            document.getElementById("btnLeast").disabled = true;
+            document.getElementById("btnGreatest").disabled = true;
+            document.getElementById("btnMean").disabled = true;
+            document.getElementById("btnSum").disabled = true;
+            document.getElementById("btnProduct").disabled = true;
+        } else {
+            document.getElementById("btnLeast").disabled = false;
+            document.getElementById("btnGreatest").disabled = false;
+            document.getElementById("btnMean").disabled = false;
+            document.getElementById("btnSum").disabled = false;
+            document.getElementById("btnProduct").disabled = false;
+        }
+    }
+
+    // Retrieve user's values, store into an array.
+    function retrieveValuesArray() {
+        numberArray = [];
+        numberArray.push(Number(document.getElementById("number1").value));
+        numberArray.push(Number(document.getElementById("number2").value));
+        numberArray.push(Number(document.getElementById("number3").value));
+        numberArray.push(Number(document.getElementById("number4").value));
+        numberArray.push(Number(document.getElementById("number5").value));
+    }
+
+    // Determine least value within the user's numbers.
+    function determineLeast() {
+        /** Math.min.apply("thisarg", "array").  "thisarg" is the object that Math.min is being added to.
+            Here, "null" indicates that Math.min is not being added to an object, but is instead being used directly. **/
+        retrieveValuesArray();
+        document.getElementById("leastResult").innerHTML = Math.min.apply(null, numberArray);
+    }
+
+    // Determine greatest value within the user's numbers.
+    function determineGreatest() {
+        retrieveValuesArray();
+        document.getElementById("greatestResult").innerHTML = Math.max.apply(null, numberArray);
+    }
+
+    // Calculate the sum of the user's numbers.
+    function calculateSum() {
+        retrieveValuesArray();
+        var numbersSum = 0;
+        for (var i = 0; i <= numberArray.length - 1; i++) {
+            numbersSum += numberArray[i];
+        }
+        return numbersSum;
+    }
+
+    // Determine the mean of the user's numbers.
+    function determineMean() {
+        document.getElementById("meanResult").innerHTML = calculateSum() / numberArray.length;
+    }
+
+    // Determine the sum of the user's numbers.        
+    function determineSum() {
+        document.getElementById("sumResult").innerHTML = calculateSum();
+    }
+
+    // Determine the product of the user's numbers.
+    function determineProduct() {
+        retrieveValuesArray();
+        var numbersProduct = 1;
+        for (var i = 0; i <= numberArray.length - 1; i++) {
+            numbersProduct *= numberArray[i];
+        }
+        document.getElementById("productResult").innerHTML = numbersProduct;
+    }
+
+    // Reset the page.
+    function clearResetFiveNumbers() {
+
+        // Disable buttons.
+        document.getElementById("btnLeast").disabled = true;
+        document.getElementById("btnGreatest").disabled = true;
+        document.getElementById("btnMean").disabled = true;
+        document.getElementById("btnSum").disabled = true;
+        document.getElementById("btnProduct").disabled = true;
+
+        // Clear input fields.
+        document.getElementById("number1").value = "";
+        document.getElementById("number2").value = "";
+        document.getElementById("number3").value = "";
+        document.getElementById("number4").value = "";
+        document.getElementById("number5").value = "";
+
+        // Reset results display for each operation.
+        document.getElementById("leastResult").innerHTML = "Least result";
+        document.getElementById("greatestResult").innerHTML = "Greatest result";
+        document.getElementById("meanResult").innerHTML = "Mean result";
+        document.getElementById("sumResult").innerHTML = "Sum result";
+        document.getElementById("productResult").innerHTML = "Product result";
+    }
+</script>
+<!-- End 5 Numbers -->
+
+
+<!-- Begin Factorials -->
+<script>
+    // Enable / Disable button depending upon whether user has entered a value into the required input field.
+    function enableDisableButtonsFactorial() {
+        if (document.getElementById("numberFactorial").value === "" ||
+            !Number.isInteger(Number(document.getElementById("numberFactorial").value)) ||
+            Number(document.getElementById("numberFactorial").value) < 0) {
+            document.getElementById("btnFactorial").disabled = true;
+        } else {
+            document.getElementById("btnFactorial").disabled = false;
+        }
+    }
+
+    // Determine factorial of user's number. 
+    function determineFactorial() {
+
+        // Establish variables.
+        var numberFactorial = document.getElementById("numberFactorial").value;
+        var factorialResult = 1;
+
+        // Compute factorial.
+        for (var i = 1; i <= Number(numberFactorial); i++) {
+            factorialResult *= i;
+        }
+
+        // Display result to user.
+        document.getElementById("factorialResult").innerHTML = numberFactorial + "! = " + factorialResult;
+    }
+
+    // Reset the page.
+    function clearResetFactorial() {
+        document.getElementById("btnFactorial").disabled = true;
+        document.getElementById("numberFactorial").value = "";
+        document.getElementById("factorialResult").innerHTML = "&nbsp;";
+    }
+</script>
+<!-- End Factorials -->
+
+
+<!-- Begin Fizzbuzz -->
+<script>
+    // Enable / Disable buttons depending upon whether user has entered appropriate values into both required input fields.
+    function enableDisableButtonsFB() {
+        if (document.getElementById("number1FB").value === "" ||
+            document.getElementById("number2FB").value === "" ||
+            Number(document.getElementById("number1FB").value) < 1 || Number(document.getElementById("number1FB").value) > 100 ||
+            Number(document.getElementById("number2FB").value) < 1 || Number(document.getElementById("number2FB").value) > 100) {
+            document.getElementById("btnFizzBuzz").disabled = true;
+        } else {
+            document.getElementById("btnFizzBuzz").disabled = false;
+        }
+    }
+
+    // Identify numbers which qualify as 'Fizz', 'Buzz', or 'FizzBuzz' numbers.
+    function processFizzBuzz() {
+
+        // Retrieve user's numbers.
+        var number1 = Number(document.getElementById("number1FB").value);
+        var number2 = Number(document.getElementById("number2FB").value);
+
+        // Establish variables.
+        var outputElement = "";
+        var fbElement;
+        var resultOutput = "";
+
+        // Test user's numbers.
+        for (var i = 1; i <= 100; i++) {
+
+            // Reset fizz/buzz identifier.
+            fbElement = false;
+
+            // Determine whether current number is a multiple of the user's first number.
+            if (!(i % number1)) {
+                // Set output.
+                outputElement = "Fizz";
+                // Identify as f/b.
+                fbElement = true;
+            }
+            // Determine whether current number is a multiple of the user's second number.
+            if (!(i % number2)) {
+                // Set output.
+                outputElement = "Buzz";
+                // Identify as f/b.
+                fbElement = true;
+            }
+            // Determine whether current number is a multiple of both of the user's numbers.
+            if (!(i % number1) && !(i % number2)) {
+                // Set output.
+                outputElement = "FizzBuzz";
+                // Identify as f/b.
+                fbElement = true;
+            }
+            // Determine whether current number has been identified as a f/b element.
+            if (!fbElement) {
+                // Set output.
+                outputElement = i;
+            }
+
+            // Insert spacing as appropriate.
+            if (i !== 100) {
+                outputElement += ", ";
+            }
+
+            // Build result string.
+            resultOutput += outputElement;
+        }
+
+        // Display result to user.
+        document.getElementById("fizzBuzzResult").innerHTML = resultOutput;
+    }
+
+    // Reset the page.
+    function clearResetFB() {
+        document.getElementById("btnFizzBuzz").disabled = true;
+
+        document.getElementById("number1FB").value = "";
+        document.getElementById("number2FB").value = "";
+
+        document.getElementById("fizzBuzzResult").innerHTML = "&nbsp;";
+    }
+</script>
+<!-- End Fizzbuzz -->
+
+
+<!-- Begin Palindrome Finder -->
+<script>
+    // Enable / Disable button depending upon whether user has entered a value into required input field.
+    function enableDisableButtonsPalindrome() {
+        if (document.getElementById("wordToTest").value == "") {
+            document.getElementById("btnPalindrome").disabled = true;
+        } else {
+            document.getElementById("btnPalindrome").disabled = false;
+        }
+    }
+
+    // Determine whether user's word is a Palindrome.
+    function determinePalindrome() {
+
+        // Retrieve input value.
+        var inputValue = document.getElementById("wordToTest").value;
+
+        // Filter out non-valid characters & convert to lowercase.
+        var wordToTest = inputValue.replace(/[^A-Za-z0-9]/gi, "").toLowerCase();
+      
+        // Establish variables.
+        var lengthOfWord = wordToTest.length;
+        var maxCharsToTest = parseInt(lengthOfWord / 2);
+        var isPalindrome = true;
+        var testUp = "";
+        var testDown = "";
+        var resultMessage = "";
+
+        // Clear result.
+        document.getElementById("palindromeResult").innerHTML = "";
+
+        // Test letters in the word, comparing first 'half' (testUp) of the word against the last 'half' (testDown).
+        for (var i = 0; i < maxCharsToTest; i++) {
+            testUp = wordToTest.charAt(i);
+            testDown = wordToTest.charAt(lengthOfWord - i - 1);
+
+            // If any character comparision is false, the word is not a palindrome.
+            if (testUp !== testDown) {
+                isPalindrome = false;
+            }
+        }
+
+        // Display result to user.
+        if (!isPalindrome) {
+            resultMessage = "The word/phrase \'" + inputValue + "'\ is NOT a Palindrome.";
+        } else {
+            resultMessage = "The word/phrase \'" + inputValue + "'\ IS a Palindrome!";
+        }
+        document.getElementById("palindromeResult").innerHTML = resultMessage;
+    }
+
+    // Reset the page.
+    function clearResetPalindrome() {
+        document.getElementById("btnPalindrome").disabled = true;
+        document.getElementById("wordToTest").value = "";
+        document.getElementById("palindromeResult").innerHTML = "&nbsp;";
+    }
+</script>
+<!-- End Palindrome Finder -->
+
+
+<!-- Begin Alphabetize -->
+<script>
+    // Alphabetize the letters in a string.
+    function processString() {
+
+        // Retrieve input value.
+        var stringToProcess = document.getElementById("stringToProcess").value;
+
+        // Determine whether user entered a string to test.
+        if (stringToProcess !== "") {
+
+            // Establish variables.
+            var stringArray = [];
+            var lowercaseArray = [];
+            var tempElementStringArray;
+            var tempElementFinalStringArray;
+
+            // Clear any existing result.
+            document.getElementById("stringProcessingResult").innerHTML = "";
+
+            // Convert user's string to arrays.
+            lowercaseStringArray = stringToProcess.toLowerCase().split("");
+            finalStringArray = stringToProcess.split("");
+
+            /** Sort the arrays. The lowercase array 'drives' the sort,
+                the final array 'goes along for the ride'. **/
+            for (var j = 1; j <= lowercaseStringArray.length - 1; j++) {
+                for (var i = 1; i <= lowercaseStringArray.length - 1; i++) {
+
+                    /** Examine the lowercase array and compare current array element with lower-indexed element. 
+                        Swap the two elements if the lower-indexed element has a higher ACSII-code value. **/
+                    if (lowercaseStringArray[i - 1] > lowercaseStringArray[i]) {
+
+                        // Swap the two elements in both arrays.
+                        tempElementStringArray = lowercaseStringArray[i - 1];
+                        tempElementFinalStringArray = finalStringArray[i - 1];
+
+                        lowercaseStringArray[i - 1] = lowercaseStringArray[i];
+                        finalStringArray[i - 1] = finalStringArray[i];
+
+                        lowercaseStringArray[i] = tempElementStringArray;
+                        finalStringArray[i] = tempElementFinalStringArray;
+                    }
+                }
+            }
+
+            // Convert the sorted array back to a string and display it.
+            document.getElementById("stringProcessingResult").innerHTML = finalStringArray.join("");
+
+        } else {
+            // Remind user to first enter a string.
+            document.getElementById("stringProcessingResult").innerHTML = "Please enter a string to test.";
+        }
+    }
+
+    // Reset the page.
+    function clearResetAlphabetize() {
+        document.getElementById("stringToProcess").value = "";
+        document.getElementById("stringProcessingResult").innerHTML = "&nbsp;";
+    }
+</script>
+<!-- End Alphabetize -->
+
+
+<!-- Begin Uppercase -->
+<script>
+    // Obtain string and process it.
+    function processStringUppercase() {
+
+        // Retrieve input value.
+        var stringToProcessUppercase = document.getElementById("stringToProcessUppercase").value;
+
+        // Determine whether user entered a string to process.
+        if (stringToProcessUppercase !== "") {
+
+            // Clear any existing result.
+            document.getElementById("stringProcessingResultUppercase").innerHTML = "";
+
+            // Process the string.
+            var revisedString = reviseString(stringToProcessUppercase);
+
+            // Display the revised string.
+            document.getElementById("stringProcessingResultUppercase").innerHTML = revisedString;
+
+        } else {
+            // Remind user to first enter a string.
+            document.getElementById("stringProcessingResultUppercase").innerHTML = "Please enter a sentence to process.";
+        }
+    }
+
+    // Convert 1st letter of each word to upper case.
+    function reviseString(stringToProcessUppercase) {
+
+        // Establish variable.
+        var stringArray = [];
+
+        // Convert user's string to array.
+        stringArray = stringToProcessUppercase.split(" ");
+
+        // Convert first letter of each array element to upper case.
+        for (var i = 0; i <= stringArray.length - 1; i++) {
+            stringArray[i] = stringArray[i].replace(stringArray[i].charAt(0), stringArray[i].charAt(0).toUpperCase());
+        }
+
+        // Build and return revised string.
+        return stringArray.join(" ")
+    }
+
+    // Reset the page.
+    function clearResetUppercase() {
+        document.getElementById("stringToProcessUppercase").value = "";
+        document.getElementById("stringProcessingResultUppercase").innerHTML = "&nbsp;";
+    }
+</script>
+<!-- End Uppercase -->
+
+
+<!-- Begin Vowels -->
+<script>
+    // Obtain string and process it.
+    function processStringVowels() {
+
+        // Retrieve input value.
+        var stringToProcessVowels = document.getElementById("stringToProcessVowels").value;
+
+        // Determine whether user entered a string to process.
+        if (stringToProcessVowels !== "") {
+
+            // Clear any existing result.
+            document.getElementById("stringProcessingResultVowels").innerHTML = "";
+
+            // Process the string.
+            var vowelCount = countVowels(stringToProcessVowels);
+
+            // Display the revised string.
+            document.getElementById("stringProcessingResultVowels").innerHTML = "\'" + stringToProcessVowels + "\' contains " + vowelCount + ".";
+
+        } else {
+
+            // Remind user to first enter a string.
+            document.getElementById("stringProcessingResultVowels").innerHTML = "Please enter a sentence to process.";
+        }
+    }
+
+    // Count the number of vowels within a string.
+    function countVowels(stringToProcessVowels) {
+
+        // Establish variables.
+        var stringArray = [];
+        var outputArray = [];
+
+        // Convert user's string to array.
+        stringArray = stringToProcessVowels.split("");
+
+        // Find each vowel within the array. Add it to the output array.
+        for (var i = 0; i <= stringArray.length - 1; i++) {
+
+            switch (stringArray[i]) {
+                case "a":
+                    outputArray.push(stringArray[i]);
+                    break;
+                case "e":
+                    outputArray.push(stringArray[i]);
+                    break;
+                case "i":
+                    outputArray.push(stringArray[i]);
+                    break;
+                case "o":
+                    outputArray.push(stringArray[i]);
+                    break;
+                case "u":
+                    outputArray.push(stringArray[i]);
+                    break;
+                case "y":
+                    outputArray.push(stringArray[i]);
+                    break;
+            }
+        }
+
+        // Build and return vowel-identification string.
+        return outputArray.length + " vowels: " + outputArray.toString();
+    }
+
+    // Reset the page.
+    function clearResetVowels() {
+        document.getElementById("stringToProcessVowels").value = "";
+        document.getElementById("stringProcessingResultVowels").innerHTML = "&nbsp;";
+    }
+</script>
+<!-- End Vowels -->
+
+
+<!-- Begin Primes -->
+<script>
+    // Identify Prime Numbers.
+    function determinePrime() {
+
+        // Establish variables.
+        var number1 = document.getElementById("number1Primes").value;
+        var modQuestion
+        var primeResult;
+        var isPrimeArrayTest = [];
+
+        // Confirm user entered a positive integer greater than one.
+        if (Number(number1) > 1 && number1 !== "") {
+
+            // Loop through all values > 1 and <= the user's value. 
+            for (var i = 2; i <= Number(number1); i++) {
+
+                // Find remainder of division by current value.
+                modQuestion = Number(number1) % i;
+
+                // If remainder is zero, add current value to array.
+                if (modQuestion === 0) {
+                    isPrimeArrayTest.push(i);
+                }
+            }
+
+            // If only one zero-value remainder was found, user's value is a Prime.
+            if (isPrimeArrayTest.length === 1) {
+                primeResult = number1 + ":  IS a Prime.";
+            } else {
+                primeResult = number1 + ":  Is NOT a Prime.";
+            }
+
+            // Display result to user.
+            document.getElementById("primeResult").innerHTML = primeResult;
+        } else {
+
+            // Invalid numeric value entered.
+            document.getElementById("primeResult").innerHTML = "Please enter a positive integer greater than 1.";
+        }
+    }
+
+    // Reset the page.
+    function clearResetPrimes() {
+        document.getElementById("number1Primes").value = "";
+        document.getElementById("primeResult").innerHTML = "&nbsp;";
+    }
+</script>
+<!-- End Primes -->
+<!-- ** End Scripts ** -->

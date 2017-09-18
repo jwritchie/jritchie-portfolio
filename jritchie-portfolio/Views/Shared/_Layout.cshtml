@@ -1,0 +1,146 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>jritchie-Portfolio</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- SyntaxHighlighter -->    
+    <link href="~/Content/SyntaxHighlighter/shCore.css" rel="stylesheet" />
+    <link href="~/Content/SyntaxHighlighter/shCoreDefault.css" rel="stylesheet" />
+    <link href="~/Content/SyntaxHighlighter/shThemeDefault.css" rel="stylesheet" />
+
+    <!-- Custom fonts for this template -->
+    <link href="~/Assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+    <!-- Plugin CSS -->
+    <link href="~/Assets/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="~/Assets/css/creative.css" rel="stylesheet">
+</head>
+
+<body id="page-top" style="background-color:rgba(211,211,211,0.2)">
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" style="background:linear-gradient(to right, rgb(198, 194, 188), rgb(211,211,211)); border-bottom:2px solid rgb(90, 145, 225); box-shadow: 0px 2px 4px rgba(30,30,30,0.5)">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#portfolioNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="@Url.Action("Index","Home")" style="color:rgb(30, 80, 150); text-shadow:2px 2px 3px rgba(30,30,30,0.25)">John Ritchie</a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="portfolioNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("About","Home")" style="color:rgb(30, 80, 150); text-shadow:2px 2px 3px rgba(30,30,30,0.25)">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Portfolio","Home")" style="color:rgb(30, 80, 150); text-shadow:2px 2px 3px rgba(30,30,30,0.25)">Portfolio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="http://jritchie-blog.azurewebsites.net/" style="color:rgb(30, 80, 150); text-shadow:2px 2px 3px rgba(30,30,30,0.25)">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Resume","Home")" style="color:rgb(30, 80, 150); text-shadow:2px 2px 3px rgba(30,30,30,0.25)">Resume</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Contact","Home")" style="color:rgb(30, 80, 150); text-shadow:2px 2px 3px rgba(30,30,30,0.25)">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+
+    <nav class="navbar navbar-fixed-bottom" style="background-color:rgb(246, 246, 246); border-top:2px solid rgb(90, 145, 225)">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12 text-center" style="padding-top:14px">
+                    <p style="color:black">
+                        &copy; @DateTime.Now.Year - John Ritchie
+                    </p>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+
+        @*@Scripts.Render("~/bundles/jquery")
+            @Scripts.Render("~/bundles/bootstrap")*@
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+        <!-- SyntaxHighlighter -->
+        <script src="~/Scripts/SyntaxHighlighter/shCore.js"></script>
+        <script src="~/Scripts/SyntaxHighlighter/shBrushJScript.js"></script>
+        <script>
+            SyntaxHighlighter.all();
+        </script>
+
+        <!-- Bootstrap core JavaScript -->
+        <script src="~/Assets/vendor/popper/popper.min.js"></script>
+
+        <!-- Plugin JavaScript -->
+        <script src="~/Assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+        <script src="~/Assets/vendor/scrollreveal/scrollreveal.min.js"></script>
+        <script src="~/Assets/vendor/magnific-popup/jquery.magnific-popup.min.js"></script>
+
+        <!-- Custom scripts for this template -->
+        <script src="~/Assets/js/creative.js"></script>
+
+
+        <!-- Begin JQuery: reset modals -->
+        <script>
+            $("#fiveNumbersModal").on("hide.bs.modal", function () {
+                clearResetFiveNumbers();
+            })
+            $("#factorialModal").on("hide.bs.modal", function () {
+                clearResetFactorial();
+            })
+            $("#fizzbuzzModal").on("hide.bs.modal", function () {
+                clearResetFB();
+            })
+            $("#palindromeModal").on("hide.bs.modal", function () {
+                clearResetPalindrome();
+            })
+            $("#alphabetizeModal").on("hide.bs.modal", function () {
+                clearResetAlphabetize();
+            })
+            $("#uppercaseModal").on("hide.bs.modal", function () {
+                clearResetUppercase();
+            })
+            $("#vowelsModal").on("hide.bs.modal", function () {
+                clearResetVowels();
+            })
+            $("#primesModal").on("hide.bs.modal", function () {
+                clearResetPrimes();
+            })
+        </script>
+        <!-- End JQuery: reset modals -->
+
+        @*<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+            <script src="~/Scripts/bootstrap.js"></script>*@
+
+
+        @RenderSection("scripts", required: false)
+
+</body>
+</html>
+
+
+
