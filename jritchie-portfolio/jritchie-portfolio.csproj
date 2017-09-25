@@ -162,6 +162,10 @@
     <Content Include="Assets\img\portfolio\fullsize\IMG_1591.JPG" />
     <Content Include="Assets\img\portfolio\fullsize\IMG_1842.JPG" />
     <Content Include="Assets\img\portfolio\fullsize\IMG_2216.JPG" />
+    <Content Include="Assets\img\portfolio\fullsize\TabPrinterAbout.PNG" />
+    <Content Include="Assets\img\portfolio\fullsize\TabPrinterFontStyling.png" />
+    <Content Include="Assets\img\portfolio\fullsize\TabPrinterPrintJobsManager.PNG" />
+    <Content Include="Assets\img\portfolio\fullsize\TabPrinterPropertiesManager.PNG" />
     <Content Include="Assets\img\portfolio\thumbnails\IMG_0047.JPG" />
     <Content Include="Assets\img\portfolio\thumbnails\IMG_0059.JPG" />
     <Content Include="Assets\img\portfolio\thumbnails\IMG_0469.JPG" />
@@ -330,6 +334,7 @@
     <Content Include="Views\Home\Resume.cshtml" />
     <Content Include="Views\JsExercises\Index.cshtml" />
     <Content Include="Views\Home\Portfolio.cshtml" />
+    <Content Include="Views\Home\TabPrinter.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

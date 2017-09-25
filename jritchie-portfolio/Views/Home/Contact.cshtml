@@ -69,7 +69,8 @@
                         @Html.Label("Message", new { @class = "col-md-2 control-label" })
                         @*@Html.LabelFor(m => m.Body, new { @class = "col-md-2 control-label" })*@
                         <div class="col-md-10">
-                            @Html.TextBoxFor(m => m.Body, new { @class = "form-control" })
+                            <textarea rows="5" name="Body" style="max-width:none !important; width:100%"></textarea>
+                            @*@Html.TextBoxFor(m => m.Body, new { @class = "form-control" })*@
                             @Html.ValidationMessageFor(m => m.Body)
                         </div>
                     </div>

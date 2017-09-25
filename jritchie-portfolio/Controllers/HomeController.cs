@@ -77,6 +77,11 @@ namespace jritchie_portfolio.Controllers
             return View();
         }
 
+        public ActionResult TabPrinter()
+        {
+            return View();
+        }
+
         public ActionResult Resume()
         {
             return View();
