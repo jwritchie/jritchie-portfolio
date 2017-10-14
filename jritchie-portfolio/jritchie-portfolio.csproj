@@ -177,6 +177,7 @@
     <Content Include="Assets\index.html" />
     <Content Include="Assets\js\creative.js" />
     <Content Include="Assets\js\creative.min.js" />
+    <Content Include="Assets\pdf\jritchieResume.pdf" />
     <Content Include="Assets\vendor\bootstrap\css\bootstrap-grid.css" />
     <Content Include="Assets\vendor\bootstrap\css\bootstrap-grid.min.css" />
     <Content Include="Assets\vendor\bootstrap\css\bootstrap-reboot.css" />
@@ -276,7 +277,6 @@
     <Content Include="Assets\vendor\font-awesome\scss\_screen-reader.scss" />
     <Content Include="Assets\vendor\font-awesome\scss\_stacked.scss" />
     <Content Include="Assets\vendor\font-awesome\scss\_variables.scss" />
-    <Content Include="Assets\pdf\jritchieResume.pdf" />
     <Content Include="private.config" />
     <None Include="Properties\PublishProfiles\jritchie-portfolio - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\jritchie-portfolio - Web Deploy.pubxml" />

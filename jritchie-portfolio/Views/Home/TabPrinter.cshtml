@@ -8,25 +8,56 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2 text-center">
+
                 <h2 class="section-heading" style="text-shadow:2px 2px 3px rgba(30,30,30,0.25)">Tab Printer</h2>
                 <hr class="blue" />
 
                 <p><span style="font-style:italic">Tab Printer</span>, my first VB.NET application, was written at home over the course of many evenings and weekends. It began as a simple test application to develop my skills, but evolved into a working app.</p>
 
-                <img class="img-responsive" src="~/Assets/img/portfolio/fullsize/TabPrinterAbout.png" />
+                <img class="tabprinter-Image" id="tabprinterAbout" src="~/Assets/img/portfolio/fullsize/TabPrinterAbout.png" alt="" width="750" height="407">
+                <!-- tabprinterAbout Modal -->
+                <div id="tabprinterAbout-Modal" class="tabprinter-modal">
+                    <span class="tabprinterAbout-close">×</span>
+                    <img class="tabprinter-modal-content" id="tabprinterAboutImage">
+                    <div id="tabprinter-caption"></div>
+                </div>
                 <p style="margin-bottom:30px">Once complete, a copy of <span style="font-style:italic">Tab Printer</span> was given to UNCG's Bryan School of Business & Economics, where it was used in production by the print shop for flexible, full-color, high speed printing of 3-ring binder index tabs.</p>
 
-                <img class="img-responsive" src="~/Assets/img/portfolio/fullsize/TabPrinterFontStyling.png" />
+                <br /><br />
+  
+                <img class="tabprinter-Image" id="tabprinterFontStyling" src="~/Assets/img/portfolio/fullsize/TabPrinterFontStyling.png" alt="" width="750" height="407">
+                <!-- tabprinterFontStyling Modal -->
+                <div id="tabprinterFontStyling-Modal" class="tabprinter-modal">
+                    <span class="tabprinterFontStyling-close">×</span>
+                    <img class="tabprinter-modal-content" id="tabprinterFontStylingImage">
+                    <div id="tabprinter-caption"></div>
+                </div>
                 <p style="margin-bottom:10px">The text on each index tab can be styled simultaneously, or adjusted individually as needed. A live print-preview allows users to see the text as it is entered and styled.</p>
                 <p style="margin-bottom:30px">Shown here, the text on Tab 5 is being styled independently of the other tabs, whose styling has already been set.</p>
-                
-                <img class="img-responsive" src="~/Assets/img/portfolio/fullsize/TabPrinterPrintJobsManager.png" />
+
+                <br /><br />
+
+                <img class="tabprinter-Image" id="tabprinterPrintJobsManager" src="~/Assets/img/portfolio/fullsize/TabPrinterPrintJobsManager.png" alt="" width="750" height="407">
+                <!-- tabprinterPrintJobsManager Modal -->
+                <div id="tabprinterPrintJobsManager-Modal" class="tabprinter-modal">
+                    <span class="tabprinterPrintJobsManager-close">×</span>
+                    <img class="tabprinter-modal-content" id="tabprinterPrintJobsManagerImage">
+                    <div id="tabprinter-caption"></div>
+                </div>
                 <p style="margin-bottom:30px">The Print Jobs Manager includes a database allowing print jobs to be saved and recalled as needed. This feature is especially useful when clients realize they need additional copies of an already completed print job.</p>
-                
-                <img class="img-responsive" src="~/Assets/img/portfolio/fullsize/TabPrinterPropertiesManager.png" />
+
+                <br /><br />
+
+                <img class="tabprinter-Image" id="tabprinterPropertiesManager" src="~/Assets/img/portfolio/fullsize/TabPrinterPropertiesManager.png" alt="" width="750" height="407">
+                <!-- tabprinterPropertiesManager Modal -->
+                <div id="tabprinterPropertiesManager-Modal" class="tabprinter-modal">
+                    <span class="tabprinterPropertiesManager-close">×</span>
+                    <img class="tabprinter-modal-content" id="tabprinterPropertiesManagerImage">
+                    <div id="tabprinter-caption"></div>
+                </div>
                 <p>The Properties Manager allows the exact placement of printed text to be set for up to five different printers/copiers. Printing is handled by each individual machine's Windows print driver.</p>
 
-            </div>
+                </div>
         </div>
     </div>
 
@@ -37,7 +68,115 @@
             <div class="col-md-12 text-center">
                 <a href="@Url.Action("Portfolio","Home")" style="color:rgb(30, 80, 150)">Back to Portfolio</a>
             </div>
+            <div class="col-md-12 text-center">-</div>
+            <div class="col-md-12 text-center">
+                <a href="@Url.Action("About","Home")" style="color:rgb(30, 80, 150)">Back to About</a>
+            </div>
         </div>
     </div>
 
 </section>
+
+
+@section scripts{
+
+    <!-- tabprinter About -->
+    <script>
+    // Get the modal
+    var modalAbout = document.getElementById('tabprinterAbout-Modal');
+
+    // Get the image and insert it inside the modal - use its "alt" text as a caption
+    var imgAbout = document.getElementById('tabprinterAbout');
+    var modalAboutImg = document.getElementById("tabprinterAboutImage");
+    //var captionText = document.getElementById("caption");
+    imgAbout.onclick = function(){
+        modalAbout.style.display = "block";
+        modalAboutImg.src = this.src;
+        //captionText.innerHTML = this.alt;
+    }
+
+    // Get the <span> element that closes the modal
+    var spanAbout = document.getElementsByClassName("tabprinterAbout-close")[0];
+
+    // When the user clicks on <span> (x), close the modal
+    spanAbout.onclick = function() {
+        modalAbout.style.display = "none";
+    }
+    </script>
+
+
+    <!-- tabprinter Font Styling -->
+    <script>
+    // Get the modal
+    var modalFontStyling = document.getElementById('tabprinterFontStyling-Modal');
+
+    // Get the image and insert it inside the modal - use its "alt" text as a caption
+    var imgFontStyling = document.getElementById('tabprinterFontStyling');
+    var modalFontStylingImg = document.getElementById("tabprinterFontStylingImage");
+    //var captionText = document.getElementById("caption");
+    imgFontStyling.onclick = function () {
+        modalFontStyling.style.display = "block";
+        modalFontStylingImg.src = this.src;
+        //captionText.innerHTML = this.alt;
+    }
+
+    // Get the <span> element that closes the modal
+    var spanFontStyling = document.getElementsByClassName("tabprinterFontStyling-close")[0];
+
+    // When the user clicks on <span> (x), close the modal
+    spanFontStyling.onclick = function () {
+        modalFontStyling.style.display = "none";
+    }
+    </script>
+
+
+    <!-- tabprinter Print Jobs Manager -->
+    <script>
+    // Get the modal
+    var modalPrintJobsManager = document.getElementById('tabprinterPrintJobsManager-Modal');
+
+    // Get the image and insert it inside the modal - use its "alt" text as a caption
+    var imgPrintJobsManager = document.getElementById('tabprinterPrintJobsManager');
+    var modalPrintJobsManagerImg = document.getElementById("tabprinterPrintJobsManagerImage");
+    //var captionText = document.getElementById("caption");
+    imgPrintJobsManager.onclick = function () {
+        modalPrintJobsManager.style.display = "block";
+        modalPrintJobsManagerImg.src = this.src;
+        //captionText.innerHTML = this.alt;
+    }
+
+    // Get the <span> element that closes the modal
+    var spanPrintJobsManager = document.getElementsByClassName("tabprinterPrintJobsManager-close")[0];
+
+    // When the user clicks on <span> (x), close the modal
+    spanPrintJobsManager.onclick = function () {
+        modalPrintJobsManager.style.display = "none";
+    }
+    </script>
+
+
+    <!-- tabprinter Properties Manager -->
+    <script>
+    // Get the modal
+    var modalPropertiesManager = document.getElementById('tabprinterPropertiesManager-Modal');
+
+    // Get the image and insert it inside the modal - use its "alt" text as a caption
+    var imgPropertiesManager = document.getElementById('tabprinterPropertiesManager');
+    var modalPropertiesManagerImg = document.getElementById("tabprinterPropertiesManagerImage");
+    //var captionText = document.getElementById("caption");
+    imgPropertiesManager.onclick = function () {
+        modalPropertiesManager.style.display = "block";
+        modalPropertiesManagerImg.src = this.src;
+        //captionText.innerHTML = this.alt;
+    }
+
+    // Get the <span> element that closes the modal
+    var spanPropertiesManager = document.getElementsByClassName("tabprinterPropertiesManager-close")[0];
+
+    // When the user clicks on <span> (x), close the modal
+    spanPropertiesManager.onclick = function () {
+        modalPropertiesManager.style.display = "none";
+    }
+    </script>
+
+}
