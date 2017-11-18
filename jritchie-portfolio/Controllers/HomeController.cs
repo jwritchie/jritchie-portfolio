@@ -82,6 +82,11 @@ namespace jritchie_portfolio.Controllers
             return View();
         }
 
+        public ActionResult GTCCCapstone()
+        {
+            return View();
+        }
+
         public ActionResult Resume()
         {
             return View();

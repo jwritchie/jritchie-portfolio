@@ -305,3 +305,4 @@ $RECYCLE.BIN/
 Configuration.cs
 Web.config
 private.config
+*.pdf

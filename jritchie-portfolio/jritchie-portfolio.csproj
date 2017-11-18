@@ -157,6 +157,7 @@
     <Content Include="Assets\css\creative.min.css" />
     <Content Include="Assets\gulpfile.js" />
     <Content Include="Assets\img\Logo-2C-34px-R.png" />
+    <Content Include="Assets\img\portfolio\fullsize\GTCC-Logo.jpg" />
     <Content Include="Assets\img\portfolio\fullsize\IMG_0047.JPG" />
     <Content Include="Assets\img\portfolio\fullsize\IMG_0059.JPG" />
     <Content Include="Assets\img\portfolio\fullsize\IMG_0469.JPG" />
@@ -278,6 +279,22 @@
     <Content Include="Assets\vendor\font-awesome\scss\_stacked.scss" />
     <Content Include="Assets\vendor\font-awesome\scss\_variables.scss" />
     <Content Include="private.config" />
+    <Content Include="Assets\pdf\DeliverableUnit2SWOTAnalysis.pdf" />
+    <Content Include="Assets\pdf\DeliverableUnit3ERD.pdf" />
+    <Content Include="Assets\pdf\DeliverableUnit5DatabaseConnections.pdf" />
+    <Content Include="Assets\pdf\DeliverableUnit6Customers.pdf" />
+    <Content Include="Assets\pdf\DeliverableUnit7EmployeesAndInventory.pdf" />
+    <Content Include="Assets\pdf\DeliverableUnit8Transactions.pdf" />
+    <Content Include="Assets\pdf\DeliverableUnit9Reports.pdf" />
+    <Content Include="Assets\pdf\Unit1ProjectIntroduction.pdf" />
+    <Content Include="Assets\pdf\Unit2RequirementsSWOTAnalysis.pdf" />
+    <Content Include="Assets\pdf\Unit3RequirementsERD.pdf" />
+    <Content Include="Assets\pdf\Unit4RequirementsDatabase.pdf" />
+    <Content Include="Assets\pdf\Unit5RequirementsDatabaseConnections.pdf" />
+    <Content Include="Assets\pdf\Unit6RequirementsCustomers.pdf" />
+    <Content Include="Assets\pdf\Unit7RequirementsEmployeesAndInventory.pdf" />
+    <Content Include="Assets\pdf\Unit8RequirementsTransactions.pdf" />
+    <Content Include="Assets\pdf\Unit9RequirementsReports.pdf" />
     <None Include="Properties\PublishProfiles\jritchie-portfolio - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\jritchie-portfolio - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -337,6 +354,7 @@
     <Content Include="Views\JsExercises\Index.cshtml" />
     <Content Include="Views\Home\Portfolio.cshtml" />
     <Content Include="Views\Home\TabPrinter.cshtml" />
+    <Content Include="Views\Home\GTCCCapstone.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
