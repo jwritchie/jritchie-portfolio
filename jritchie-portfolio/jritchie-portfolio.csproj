@@ -157,7 +157,7 @@
     <Content Include="Assets\css\creative.min.css" />
     <Content Include="Assets\gulpfile.js" />
     <Content Include="Assets\img\Logo-2C-34px-R.png" />
-    <Content Include="Assets\img\portfolio\fullsize\GTCC-Logo.jpg" />
+    <Content Include="Assets\img\portfolio\fullsize\GTCCLogo.jpg" />
     <Content Include="Assets\img\portfolio\fullsize\IMG_0047.JPG" />
     <Content Include="Assets\img\portfolio\fullsize\IMG_0059.JPG" />
     <Content Include="Assets\img\portfolio\fullsize\IMG_0469.JPG" />
